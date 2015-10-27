@@ -94,3 +94,17 @@ sonata_user:
         user:               Librinfo\UserBundle\Entity\User
         group:              Librinfo\UserBundle\Entity\Group
 ```
+
+Disabling User Registration
+---------------------------
+
+Just add this « overriding » configuration routing to your routing.yml
+
+```
+# app/config/routing.yml
+sonata_user_register:
+    resource: "@LibrinfoUserBundle/Resources/config/registration_routes.xml"
+    prefix: /register
+```
+
+All these routes will throw a NotFoundHttpException, disallowing registration process.
