@@ -1,0 +1,6 @@
+services:
+    app.admin.user:
+        class: Librinfo\UserBundle\Admin\UserAdminConcrete
+        arguments: [~, Librinfo\UserBundle\Entity\User, SonataAdminBundle:CRUD]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: Customers Relationship Management, label: Users}

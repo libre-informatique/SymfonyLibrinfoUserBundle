@@ -1,0 +1,19 @@
+Librinfo\UserBundle\Entity\Group:
+    type:  entity
+    id:
+        id:
+            type: integer
+            generator:
+                strategy: AUTO
+    manyToMany:
+        users:
+            mappedBy: groups
+            targetEntity: Librinfo\UserBundle\Entity\User
+            joinTable:
+                name: librinfo_user_groups_users
+                joinColumns:
+                    group_id:
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    user_id:
+                        referencedColumnName: id
