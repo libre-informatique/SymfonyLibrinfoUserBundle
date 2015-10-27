@@ -1,0 +1,2 @@
+# SymfonyLibrinfoUserBundle
+Manage user authentication
