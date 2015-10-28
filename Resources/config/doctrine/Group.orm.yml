@@ -5,6 +5,12 @@ Librinfo\UserBundle\Entity\Group:
             type: integer
             generator:
                 strategy: AUTO
+    fields:
+        name:
+            type: string
+            nullable: false
+        roles:
+            type: array
     manyToMany:
         users:
             mappedBy: groups

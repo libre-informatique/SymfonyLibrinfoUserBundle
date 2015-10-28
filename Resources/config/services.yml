@@ -3,4 +3,9 @@ services:
         class: Librinfo\UserBundle\Admin\UserAdminConcrete
         arguments: [~, Librinfo\UserBundle\Entity\User, SonataAdminBundle:CRUD]
         tags:
-            - {name: sonata.admin, manager_type: orm, group: Customers Relationship Management, label: Users}
+            - {name: sonata.admin, manager_type: orm, group: Application Management, label: Users}
+    app.admin.group:
+        class: Librinfo\UserBundle\Admin\GroupAdminConcrete
+        arguments: [~, Librinfo\UserBundle\Entity\Group, SonataAdminBundle:CRUD]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: Application Management, label: Groups}

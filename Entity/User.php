@@ -27,5 +27,16 @@ class User extends BaseUser
     public function isUser(UserInterface $user = null)
     {
         // TODO: Implement isUser() method.
+        return true;
+    }
+
+    /**
+     * __toString
+     *
+     * @return mixed
+     */
+    public function __toString()
+    {
+        return $this->username;
     }
 }
