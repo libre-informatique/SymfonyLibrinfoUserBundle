@@ -1,0 +1,53 @@
+{% extends "LibrinfoDecoratorBundle:Admin:empty_layout.html.twig" %}
+
+{% block stylesheets %}
+    <link href="/bundles/librinfouser/css/login.css" rel="stylesheet">
+{% endblock %}
+
+{% block body_attributes %}class="sonata-bc skin-blue fixed main-login"{% endblock %}
+
+{% block content %}
+    <div class="main-login-container">
+        {% if error %}
+            <div>{{ error|trans({}, 'FOSUserBundle') }}</div>
+        {% endif %}
+
+        <form action="{{ path("fos_user_security_check") }}" method="post">
+            <input type="hidden" name="_csrf_token" value="{{ csrf_token }}"/>
+
+            <div class="input-group input-group-lg">
+                <input type="text" class="form-control"
+                       name="_username" id="username"
+                       placeholder="{{ 'security.login.username'|trans({}, 'FOSUserBundle') }}"
+                       value="{{ last_username }}"
+                       required="required">
+                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+            </div>
+
+            <div class="input-group input-group-lg">
+                <input type="password" class="form-control"
+                       name="_password" id="password"
+                       placeholder="{{ 'security.login.password'|trans({}, 'FOSUserBundle') }}"
+                       required="required">
+                <span class="input-group-addon"><i class="fa fa-key"></i></span>
+            </div>
+
+            <div class="remember-me-container">
+                <label for="remember_me">{{ 'security.login.remember_me'|trans({}, 'FOSUserBundle') }}</label>
+                <input type="checkbox" id="remember_me" name="_remember_me" value="on"/>
+            </div>
+
+            <input type="submit" id="_submit" name="_submit" class="btn btn-primary btn-lg"
+                   value="{{ 'security.login.submit'|trans({}, 'FOSUserBundle') }}"/>
+        </form>
+    </div>
+    <script>
+        $.fn.bootstrapSwitch.defaults.size = 'mini';
+        $(document).ready(function () {
+            $("[name='_remember_me']").bootstrapSwitch({
+                'onText':  '✔',
+                'offText': '✖'
+            });
+        });
+    </script>
+{% endblock %}
