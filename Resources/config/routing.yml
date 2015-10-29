@@ -1,7 +1,18 @@
-#librinfo_user_homepage:
-#    path:     /hello/{name}
-#    defaults: { _controller: LibrinfoUserBundle:Default:index }
-
 sonata_user_register:
     resource: "@LibrinfoUserBundle/Resources/config/registration_routes.xml"
     prefix: /register
+
+sonata_user_security:
+    resource: "@SonataUserBundle/Resources/config/routing/sonata_security_1.xml"
+
+sonata_user_resetting:
+    resource: "@SonataUserBundle/Resources/config/routing/sonata_resetting_1.xml"
+    prefix: /resetting
+
+sonata_user_profile:
+    resource: "@SonataUserBundle/Resources/config/routing/sonata_profile_1.xml"
+    prefix: /profile
+
+sonata_user_change_password:
+    resource: "@SonataUserBundle/Resources/config/routing/sonata_change_password_1.xml"
+    prefix: /profile

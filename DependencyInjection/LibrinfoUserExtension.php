@@ -35,10 +35,6 @@ class LibrinfoUserExtension extends Extension
             ->defineDefaultConfiguration(
                 $configFOSUser['default']
             );
-//        die;
-
-//        if (in_array('LibrinfoCoreBundle', $container->getParameter('kernel.bundles')))
-//            $loader->load('librinfo.yml');
 
     }
 }

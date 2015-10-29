@@ -1,6 +1,10 @@
 # SymfonyLibrinfoUserBundle
 Manage user authentication
 
+The aim of this bundle is to define a minimum configured environment for user authentication.
+
+Default User and Group classes are defined and mapped with ORM driver.
+
 Installation
 ============
 
