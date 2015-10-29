@@ -2,10 +2,12 @@
 
 namespace Librinfo\UserBundle\DependencyInjection;
 
+use Librinfo\CoreBundle\DependencyInjection\DefaultParameters;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 use Symfony\Component\DependencyInjection\Loader;
+use Symfony\Component\Yaml\Yaml;
 
 /**
  * This is the class that loads and manages your bundle configuration
@@ -24,6 +26,16 @@ class LibrinfoUserExtension extends Extension
 
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
         $loader->load('services.yml');
+
+        $configFOSUser = Yaml::parse(
+            file_get_contents(__DIR__ . '/../Resources/config/bundles/fos_user.yml')
+        );
+
+        DefaultParameters::getInstance($container)
+            ->defineDefaultConfiguration(
+                $configFOSUser['default']
+            );
+//        die;
 
 //        if (in_array('LibrinfoCoreBundle', $container->getParameter('kernel.bundles')))
 //            $loader->load('librinfo.yml');
