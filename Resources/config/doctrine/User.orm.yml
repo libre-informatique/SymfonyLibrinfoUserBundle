@@ -2,9 +2,8 @@ Librinfo\UserBundle\Entity\User:
     type:  entity
     id:
         id:
-            type: integer
-            generator:
-                strategy: AUTO
+            type: guid
+            generator:  { strategy: UUID }
     manyToMany:
         groups:
             inversedBy: users

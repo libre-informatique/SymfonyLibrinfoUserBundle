@@ -7,9 +7,15 @@ use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
 use Librinfo\CoreBundle\Admin\UserAdmin as USRADM;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoder;
 
 class UserAdmin extends USRADM
 {
+    /**
+     * @var UserPasswordEncoder
+     */
+    private $securityPasswordEncoder;
+
     /**
      * @param DatagridMapper $datagridMapper
      */
@@ -107,5 +113,31 @@ class UserAdmin extends USRADM
             ->add('roles')
             ->add('credentials_expired')
             ->add('credentials_expire_at');
+    }
+
+    public function preUpdate($object)
+    {
+        $uniqid = $this->getRequest()->query->get('uniqid');
+        $formData = $this->getRequest()->request->get($uniqid);
+
+        if (array_key_exists('plainPassword', $formData) && $formData['plainPassword'] !== null && strlen($formData['plainPassword']['first']) > 0)
+        {
+            $object->setPassword($this->securityPasswordEncoder->encodePassword($object, $formData['plainPassword']['first']));
+        }
+    }
+
+    public function prePersist($object)
+    {
+        $uniqid = $this->getRequest()->query->get('uniqid');
+        $formData = $this->getRequest()->request->get($uniqid);
+        if (array_key_exists('plainPassword', $formData) && $formData['plainPassword'] !== null && strlen($formData['plainPassword']['first']) > 0)
+        {
+            $object->setPassword($this->securityPasswordEncoder->encodePassword($object, $formData['plainPassword']['first']));
+        }
+    }
+
+    public function setSecurityPasswordEncoder(UserPasswordEncoder $userPasswordEncoder)
+    {
+        $this->securityPasswordEncoder = $userPasswordEncoder;
     }
 }

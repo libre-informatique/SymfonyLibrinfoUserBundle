@@ -15,6 +15,13 @@ class User extends BaseUser
         parent::__construct();
     }
 
+    public function setLastLogin(\DateTime $time = null)
+    {
+        $this->lastLogin = $time;
+
+        return $this;
+    }
+
     /**
      * Tells if the the given user is this user.
      *

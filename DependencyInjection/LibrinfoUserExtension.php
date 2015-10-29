@@ -27,14 +27,24 @@ class LibrinfoUserExtension extends Extension
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
         $loader->load('services.yml');
 
-        $configFOSUser = Yaml::parse(
-            file_get_contents(__DIR__ . '/../Resources/config/bundles/fos_user.yml')
-        );
+        $bundleConfigDir = __DIR__ . '/../Resources/config/bundles/';
 
-        DefaultParameters::getInstance($container)
-            ->defineDefaultConfiguration(
-                $configFOSUser['default']
-            );
+        $bundlesConfigFiles = scandir($bundleConfigDir);
+
+        foreach ($bundlesConfigFiles as $file)
+        {
+            if (pathinfo($bundleConfigDir . $file)['extension'] == "yml")
+            {
+                $configFile = Yaml::parse(
+                    file_get_contents($bundleConfigDir . $file)
+                );
+
+                DefaultParameters::getInstance($container)
+                    ->defineDefaultConfiguration(
+                        $configFile['default']
+                    );
+            }
+        }
 
     }
 }
