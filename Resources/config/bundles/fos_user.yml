@@ -3,10 +3,10 @@ default: # see available parameters with command : app/console debug:container -
         default: N/A
         replace: main
     fos_user.model.group.class:
-        default: N/A
+        default: FOS\UserBundle\Entity\Group
         replace: Librinfo\UserBundle\Entity\Group
     fos_user.model.user.class:
-        default: N/A
+        default: FOS\UserBundle\Entity\User
         replace: Librinfo\UserBundle\Entity\User
     fos_user.resetting.email.from_email:
         default:

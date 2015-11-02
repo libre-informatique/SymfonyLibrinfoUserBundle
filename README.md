@@ -58,17 +58,17 @@ Configuring your FOS_User properties
 fos_user:
     db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
     # ...
-    user_class: N/A
+    user_class: FOS\UserBundle\Entity\User
     # ...
     group:
-        group_class:   N/A
+        group_class: FOS\UserBundle\Entity\Group
         group_manager: ~
     service:
         user_manager: ~
 ```
 
 ###### Note:
-```N/A``` values will be replaced with defaults ```LibrinfoUserBundle``` configuration values in ```LibrinfoUserBundle/Resources/config/bundles/fos_user.yml```
+```N/A``` and default classes values (```FOS\UserBundle\Entity\User``` and ``````FOS\UserBundle\Entity\Group``````) will be replaced with defaults ```LibrinfoUserBundle``` configuration values in ```LibrinfoUserBundle/Resources/config/bundles/fos_user.yml```
 If you define custom values in ```app/config/config.yml``` for the key ```fos_user```, the ```LibrinfoUserBundle``` will not override these values
 
 Updating your schema to add User and Group entities tables
