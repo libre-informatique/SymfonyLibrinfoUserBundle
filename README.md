@@ -58,10 +58,10 @@ Configuring your FOS_User properties
 fos_user:
     db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
     # ...
-    user_class: FOS\UserBundle\Entity\User
+    user_class: N/A
     # ...
     group:
-        group_class: FOS\UserBundle\Entity\Group
+        group_class: N/A
         group_manager: ~
     service:
         user_manager: ~
