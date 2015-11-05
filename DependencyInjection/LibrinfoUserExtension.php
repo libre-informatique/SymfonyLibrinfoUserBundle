@@ -3,6 +3,7 @@
 namespace Librinfo\UserBundle\DependencyInjection;
 
 use Librinfo\CoreBundle\DependencyInjection\DefaultParameters;
+use Librinfo\CoreBundle\DependencyInjection\LibrinfoCoreExtension;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
@@ -14,7 +15,7 @@ use Symfony\Component\Yaml\Yaml;
  *
  * To learn more see {@link http://symfony.com/doc/current/cookbook/bundles/extension.html}
  */
-class LibrinfoUserExtension extends Extension
+class LibrinfoUserExtension extends LibrinfoCoreExtension
 {
     /**
      * {@inheritdoc}
@@ -26,6 +27,14 @@ class LibrinfoUserExtension extends Extension
 
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
         $loader->load('services.yml');
+
+        if($container->getParameter('kernel.environment') == 'test')
+        {
+            if(!$container->hasParameter('librinfo.datafixtures')){
+                $container->setParameter('librinfo.datafixtures', array());
+            }
+            $this->mergeParameter('librinfo.datafixtures', $container, __DIR__.'/../Resources/config/','datafixtures.yml');
+        }
 
         $bundleConfigDir = __DIR__ . '/../Resources/config/bundles/';
 
