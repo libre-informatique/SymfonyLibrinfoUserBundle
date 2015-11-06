@@ -40,6 +40,8 @@ Edit your app/AppKernel.php file and add your "libre-informatique/user-bundle" :
             // ...
 
             // The libre-informatique bundles
+            new FOS\UserBundle\FOSUserBundle(),
+            new Sonata\UserBundle\SonataUserBundle('FOSUserBundle'),
             new Librinfo\UserBundle\LibrinfoUserBundle(),
 
             // your personal bundles
@@ -57,6 +59,7 @@ Configuring your FOS_User properties
 # app/config/config.yml (or any other file that is loaded by your bundle)
 fos_user:
     db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
+    firewall_name: main
     # ...
     user_class: N/A
     # ...
@@ -68,7 +71,7 @@ fos_user:
 ```
 
 ###### Note:
-```N/A``` and default classes values (```FOS\UserBundle\Entity\User``` and ``````FOS\UserBundle\Entity\Group``````) will be replaced with defaults ```LibrinfoUserBundle``` configuration values in ```LibrinfoUserBundle/Resources/config/bundles/fos_user.yml```
+```N/A``` and default classes values (```FOS\UserBundle\Entity\User``` and ```FOS\UserBundle\Entity\Group```) will be replaced with defaults ```LibrinfoUserBundle``` configuration values in ```LibrinfoUserBundle/Resources/config/bundles/fos_user.yml```
 If you define custom values in ```app/config/config.yml``` for the key ```fos_user```, the ```LibrinfoUserBundle``` will not override these values
 
 Updating your schema to add User and Group entities tables
@@ -78,11 +81,12 @@ Updating your schema to add User and Group entities tables
     $ app/console doctrine:schema:update --dump-sql
     $ app/console doctrine:schema:update --force
 
-Using with SonataUserBundle
----------------------------
+Using SonataUserBundle
+----------------------
 
-Update your config.yml specifying sonata user as user and group manager
-Define ```Librinfo\UserBundle\Entity``` as ```User``` and ```Group``` classes under ```sonata_user``` key
+Update your config.yml specifying sonata user as user and group manager.
+
+Define ```Librinfo\UserBundle\Entity\User``` as the ```user_class``` and ```Librinfo\UserBundle\Entity\Group``` as the ```group_class``` under the ```sonata_user``` and ```fos_user``` keys.
 
 ```
 # app/config/config.yml (or any other file that is loaded by your bundle)
