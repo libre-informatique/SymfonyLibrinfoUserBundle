@@ -8,7 +8,7 @@
         "twig/twig": "^1.22.1",
         "sonata-project/user-bundle": "~2.2"
     },
-    "license": "GNU-GPL",
+    "license": "GPL-3.0",
     "keywords": [
         "e-venement",
         "libio",
