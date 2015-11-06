@@ -4,4 +4,4 @@ parameters:
             username: 'nicolas'
             password: 'test'
             email: 'test@test.fr'
-            role: 'CRM_MANAGER'
+            role: 'ROLE_GLOBAL_TEST'

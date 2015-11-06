@@ -9,12 +9,11 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 class GroupControllerTest extends WebTestCase
 {
     private $datafixtures;
+    private $client;
 
-    public function __construct(){
-        parent::__construct();
-        $client = static::createClient();
-
-        $this->datafixtures = $client->getContainer()->getParameter('librinfo.userbundle.datafixtures');
+    public function init(){
+        $this->client = static::createClient();
+        $this->datafixtures = $this->client->getContainer()->getParameter('librinfo.userbundle.datafixtures');
     }
 
     /**
@@ -23,10 +22,9 @@ class GroupControllerTest extends WebTestCase
      */
     public function testsAdd()
     {
-        $client = static::createClient();
-
+        $this->init();
         /** @var User $user */
-        $user = $client->getContainer()->get('librinfo_core.services.authenticate')->authencicateUser($this->datafixtures['user']['username']);
+        $user = $this->client->getContainer()->get('librinfo_core.services.authenticate')->authencicateUser($this->datafixtures['user']['username']);
         $this->assertNotEmpty($user);
 
         $group = new Group();

@@ -9,12 +9,11 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 class UserControllerTest extends WebTestCase
 {
     private $datafixtures;
+    private $client;
 
-    public function __construct(){
-        parent::__construct();
-        $client = static::createClient();
-
-        $this->datafixtures = $client->getContainer()->getParameter('librinfo.userbundle.datafixtures');
+    public function init(){
+        $this->client = static::createClient();
+        $this->datafixtures = $this->client->getContainer()->getParameter('librinfo.userbundle.datafixtures');
     }
 
     /**
@@ -23,10 +22,9 @@ class UserControllerTest extends WebTestCase
      */
     public function testsUser()
     {
-        $client = static::createClient();
-
+        $this->init();
         /** @var User $user */
-        $user = $client->getContainer()->get('librinfo_core.services.authenticate')->authencicateUser($this->datafixtures['user']['username']);
+        $user = $this->client->getContainer()->get('librinfo_core.services.authenticate')->authencicateUser($this->datafixtures['user']['username']);
 
         $this->assertTrue($user->isUser() === true);
 
