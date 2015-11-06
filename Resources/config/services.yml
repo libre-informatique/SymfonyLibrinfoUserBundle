@@ -1,12 +1,12 @@
 services:
-    app.admin.user:
+    app.user:
         class: Librinfo\UserBundle\Admin\UserAdminConcrete
         arguments: [~, Librinfo\UserBundle\Entity\User, SonataAdminBundle:CRUD]
         tags:
             - {name: sonata.admin, manager_type: orm, group: Application Management, label: Users}
         calls:
             - [setSecurityPasswordEncoder,['@security.password_encoder']]
-    app.admin.group:
+    app.group:
         class: Librinfo\UserBundle\Admin\GroupAdminConcrete
         arguments: [~, Librinfo\UserBundle\Entity\Group, SonataAdminBundle:CRUD]
         tags:
