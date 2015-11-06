@@ -1,3 +1,6 @@
+parameters:
+    librinfo.user_bundle.user.class: %fos_user.model.user.class%
+
 services:
     app.user:
         class: Librinfo\UserBundle\Admin\UserAdminConcrete

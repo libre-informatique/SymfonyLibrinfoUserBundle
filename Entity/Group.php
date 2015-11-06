@@ -12,7 +12,7 @@ class Group extends Grp
     public function __construct($name = null, $roles = array())
     {
         parent::__construct($name, $roles);
-//        $this->users = new ArrayCollection();
+        $this->users = new ArrayCollection();
     }
 
     /**

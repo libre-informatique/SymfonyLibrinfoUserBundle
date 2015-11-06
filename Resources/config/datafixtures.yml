@@ -1,5 +1,5 @@
 parameters:
-    librinfo.datafixtures:
+    librinfo.userbundle.datafixtures:
         user:
             username: 'nicolas'
             password: 'test'

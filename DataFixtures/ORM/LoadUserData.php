@@ -21,7 +21,7 @@ class LoadUserData implements FixtureInterface, ContainerAwareInterface
      */
     public function load(ObjectManager $manager)
     {
-        $fixturesData = $this->container->getParameter('librinfo.datafixtures');
+        $fixturesData = $this->container->getParameter('librinfo.userbundle.datafixtures');
 
         $userAdmin = new User();
         $userAdmin->setUsername($fixturesData['user']['username']);
