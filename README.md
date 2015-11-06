@@ -70,6 +70,21 @@ fos_user:
         user_manager: sonata.user.orm.user_manager
 ```
 
+Configuring the Json type from sonata-project/doctrine-extension
+----------------------------------------------------------------
+
+```
+# app/config/config.yml (or any other file that is loaded by your bundle)
+doctrine:
+    dbal:
+        # ...
+        types:
+            json: Sonata\Doctrine\Types\JsonType
+        # ...
+```
+
+Note: an abvious mistake can be the addition of this key outside the main ```doctrine``` key, where you have all your DB configuration.
+
 ###### Note:
 ```Librinfo\BaseEntitiesBundle\Entity\GenericEntity``` and default classes values (```FOS\UserBundle\Entity\User``` and ```FOS\UserBundle\Entity\Group```) will be replaced with defaults ```LibrinfoUserBundle``` configuration values in ```LibrinfoUserBundle/Resources/config/bundles/fos_user.yml```. Custom values in ```app/config/config.yml``` for the key ```fos_user``` will not be overriden by the ```LibrinfoUserBundle```.
 
