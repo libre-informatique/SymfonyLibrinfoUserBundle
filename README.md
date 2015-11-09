@@ -17,8 +17,9 @@ Prequiresites
 
 Downloading
 -----------
-
-  $ composer require libre-informatique/user-bundle dev-master
+```
+$ composer require libre-informatique/user-bundle dev-master
+```
 
 Sonata bundles
 --------------
@@ -69,6 +70,10 @@ fos_user:
     service:
         user_manager: sonata.user.orm.user_manager
 ```
+
+#### Note
+Using ```Librinfo\BaseEntitiesBundle\Entity\GenericEntity``` as ```User``` and ```Group``` classes let this bundle defining it's own User and Group classes.
+If you define custom User and Group Classes, the bundle will not override your values.
 
 Configuring the Json type from sonata-project/doctrine-extension
 ----------------------------------------------------------------
