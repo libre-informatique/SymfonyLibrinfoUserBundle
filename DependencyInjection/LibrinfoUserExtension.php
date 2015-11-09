@@ -28,7 +28,7 @@ class LibrinfoUserExtension extends LibrinfoCoreExtension
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
         $loader->load('services.yml');
 
-        if($container->getParameter('kernel.environment') == 'test')
+        if ($container->getParameter('kernel.environment') == 'test')
         {
             $loader->load('datafixtures.yml');
         }
@@ -51,6 +51,9 @@ class LibrinfoUserExtension extends LibrinfoCoreExtension
                     );
             }
         }
+
+        if (class_exists('\Librinfo\SecurityBundle\Configurator\SecurityConfigurator'))
+            \Librinfo\SecurityBundle\Configurator\SecurityConfigurator::getInstance($container)->loadSecurityYml(__DIR__ . '/../Resources/config/security.yml');
 
     }
 }
