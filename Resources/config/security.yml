@@ -1,0 +1,20 @@
+librinfo.security:
+    security.role_hierarchy.roles:
+        ROLE_SUPER_ADMIN:
+            - ROLE_APP_MANAGER:
+                - ROLE_APP_USER_MANAGER:
+                    - ROLE_APP_USER_EDITOR:
+                        - ROLE_APP_USER_CREATE
+                        - ROLE_APP_USER_EDIT
+                        - ROLE_APP_USER_EXPORT
+                        - ROLE_APP_USER_VIEWER:
+                            - ROLE_APP_USER_LIST
+                            - ROLE_APP_USER_VIEW
+                - ROLE_APP_GROUP_MANAGER:
+                    - ROLE_APP_GROUP_EDITOR:
+                        - ROLE_APP_GROUP_CREATE
+                        - ROLE_APP_GROUP_EDIT
+                        - ROLE_APP_GROUP_EXPORT
+                        - ROLE_APP_GROUP_VIEWER:
+                            - ROLE_APP_GROUP_LIST
+                            - ROLE_APP_GROUP_VIEW
