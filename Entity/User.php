@@ -46,4 +46,39 @@ class User extends BaseUser
     {
         return $this->username;
     }
+
+    /**
+     * @return \DateTime
+     */
+    public function getExpiresAt()
+    {
+        return $this->expiresAt;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getCredentialsExpireAt()
+    {
+        return $this->credentialsExpireAt;
+    }
+
+    public function setExpiresAt(\DateTime $date = null)
+    {
+        $this->expiresAt = $date;
+    }
+
+    public function setCredentialsExpireAt(\DateTime $date = null)
+    {
+        $this->credentialsExpireAt = $date;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
 }

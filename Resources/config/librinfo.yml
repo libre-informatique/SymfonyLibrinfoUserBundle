@@ -6,12 +6,14 @@ parameters:
                     Specifics:
                         Misc:
                             createdBy:
-                                type: text
+                                type: entity
+                                class: Librinfo\UserBundle\Entity\User
                                 read_only: true
                                 disabled: true
                                 required: false
                             updatedBy:
-                                type: text
+                                type: entity
+                                class: Librinfo\UserBundle\Entity\User
                                 read_only: true
                                 disabled: true
                                 required: false
