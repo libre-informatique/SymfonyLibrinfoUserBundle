@@ -4,6 +4,7 @@ namespace Librinfo\UserBundle\Entity\Traits;
 
 use DateTime;
 use Librinfo\UserBundle\Entity\User;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 trait Traceable
 {

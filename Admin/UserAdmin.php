@@ -30,13 +30,13 @@ class UserAdmin extends Admin
             ->add('expired')
             ->add('salt')
             ->add('password')
-            ->add('last_login')
-            ->add('expires_at')
-            ->add('confirmation_token')
-            ->add('password_requested_at')
+            ->add('lastLogin')
+            ->add('expiresAt')
+            ->add('confirmationToken')
+            ->add('passwordRequestedAt')
             ->add('roles')
-            ->add('credentials_expired')
-            ->add('credentials_expire_at');
+            ->add('credentialsExpired')
+            ->add('credentialsExpireAt');
     }
 
     /**
@@ -52,14 +52,13 @@ class UserAdmin extends Admin
             ->add('locked')
             ->add('expired')
             ->add('salt')
-            ->add('password')
-            ->add('last_login')
-            ->add('expires_at')
-            ->add('confirmation_token')
-            ->add('password_requested_at')
+            ->add('lastLogin')
+            ->add('expiresAt')
+            ->add('confirmationToken')
+            ->add('passwordRequestedAt')
             ->add('roles')
-            ->add('credentials_expired')
-            ->add('credentials_expire_at')
+            ->add('credentialsExpired')
+            ->add('credentialsExpireAt')
             ->add('_action', 'actions', array(
                 'actions' => array(
                     'show'   => array(),
@@ -78,18 +77,22 @@ class UserAdmin extends Admin
             ->add('id')
             ->add('username')
             ->add('email')
-            ->add('enabled')
+            ->add('enabled','checkbox',['label'=>'Enabled'])
             ->add('locked')
             ->add('expired')
             ->add('salt')
-            ->add('password')
-            ->add('last_login')
-            ->add('expires_at')
-            ->add('confirmation_token')
-            ->add('password_requested_at')
+            ->add('plainPassword','repeated',[
+                "required" => false,
+                "translation_domain" => 'FOSUserBundle'
+            ])
+            ->add('lastLogin')
+            ->add('expiresAt')
+            ->add('confirmationToken')
+            ->add('passwordRequestedAt')
             ->add('roles')
-            ->add('credentials_expired')
-            ->add('credentials_expire_at');
+            ->add('credentialsExpired')
+            ->add('credentialsExpireAt');
+
     }
 
     /**
@@ -105,14 +108,13 @@ class UserAdmin extends Admin
             ->add('locked')
             ->add('expired')
             ->add('salt')
-            ->add('password')
-            ->add('last_login')
-            ->add('expires_at')
-            ->add('confirmation_token')
-            ->add('password_requested_at')
+            ->add('lastLogin')
+            ->add('expiresAt')
+            ->add('confirmationToken')
+            ->add('passwordRequestedAt')
             ->add('roles')
-            ->add('credentials_expired')
-            ->add('credentials_expire_at');
+            ->add('credentialsExpired')
+            ->add('credentialsExpireAt');
     }
 
     public function preUpdate($object)

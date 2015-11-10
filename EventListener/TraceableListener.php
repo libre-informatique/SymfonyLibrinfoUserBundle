@@ -7,7 +7,6 @@ use Doctrine\Common\EventSubscriber;
 use Doctrine\ORM\Event\LifecycleEventArgs;
 use Doctrine\ORM\Event\LoadClassMetadataEventArgs;
 use Doctrine\ORM\Mapping\ClassMetadata;
-use Librinfo\CoreBundle\Tools\Reflection\ClassAnalyzer;
 use Monolog\Logger;
 use Psr\Log\LoggerAwareInterface;
 use Psr\Log\LoggerInterface;
@@ -16,6 +15,8 @@ use Librinfo\BaseEntitiesBundle\EventListener\Traits\ClassChecker;
 
 class TraceableListener implements LoggerAwareInterface, EventSubscriber
 {
+    use ClassChecker;
+
     /**
      * @var Logger
      */
@@ -30,8 +31,6 @@ class TraceableListener implements LoggerAwareInterface, EventSubscriber
      * @var string
      */
     private $userClass;
-
-    use ClassChecker;
 
     /**
      * Returns an array of events this subscriber wants to listen to.
@@ -57,7 +56,7 @@ class TraceableListener implements LoggerAwareInterface, EventSubscriber
         /** @var ClassMetadata $metadata */
         $metadata = $eventArgs->getClassMetadata();
 
-        if (!$this->hasTrait($metadata->getReflectionClass(), 'Librinfo\UserBundle\Entity\Traits\Traceable', true))
+        if (!$this->hasTrait($metadata->getReflectionClass(), 'Librinfo\UserBundle\Entity\Traits\Traceable'))
             return; // return if current entity doesn't use Traceable trait
 
         $this->logger->debug(
