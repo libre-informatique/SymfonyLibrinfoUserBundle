@@ -14,3 +14,16 @@ services:
         arguments: [~, Librinfo\UserBundle\Entity\Group, SonataAdminBundle:CRUD]
         tags:
             - {name: sonata.admin, manager_type: orm, group: Application Management, label: Groups}
+
+# Service that manage Traceable doctrine mapping and behavior
+
+    librinfo.user_entities.listener.traceable:
+        class: Librinfo\UserBundle\EventListener\TraceableListener
+        tags:
+            - { name: doctrine.event_subscriber }
+        calls:
+            - [setLogger,[@logger]]
+            - [setTokenStorage, [@security.token_storage]]
+            - [setUserClass, [%librinfo.user_bundle.user.class%]]
+            - [setClassAnalyser, [Librinfo\CoreBundle\Tools\Reflection\ClassAnalyzer]]
+

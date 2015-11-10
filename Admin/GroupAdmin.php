@@ -6,9 +6,9 @@ use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
-use Librinfo\CoreBundle\Admin\GroupAdmin as GRPADM;
+use Librinfo\CoreBundle\Admin\Admin;
 
-class GroupAdmin extends GRPADM
+class GroupAdmin extends Admin
 {
     /**
      * @param DatagridMapper $datagridMapper

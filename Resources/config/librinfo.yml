@@ -1,0 +1,17 @@
+parameters:
+    librinfo:
+        Librinfo\UserBundle\Entity\Traits\Traceable:
+            Sonata\AdminBundle\Form\FormMapper:
+                add:
+                    Specifics:
+                        Misc:
+                            createdBy:
+                                type: text
+                                read_only: true
+                                disabled: true
+                                required: false
+                            updatedBy:
+                                type: text
+                                read_only: true
+                                disabled: true
+                                required: false

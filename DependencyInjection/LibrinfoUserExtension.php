@@ -3,12 +3,12 @@
 namespace Librinfo\UserBundle\DependencyInjection;
 
 use Librinfo\CoreBundle\DependencyInjection\DefaultParameters;
-use Librinfo\CoreBundle\DependencyInjection\LibrinfoCoreExtension;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 use Symfony\Component\DependencyInjection\Loader;
 use Symfony\Component\Yaml\Yaml;
+use Librinfo\CoreBundle\DependencyInjection\LibrinfoCoreExtension;
 
 /**
  * This is the class that loads and manages your bundle configuration
@@ -32,6 +32,8 @@ class LibrinfoUserExtension extends LibrinfoCoreExtension
         {
             $loader->load('datafixtures.yml');
         }
+        
+        $this->mergeParameter('librinfo', $container, __DIR__.'/../Resources/config');
 
         $bundleConfigDir = __DIR__ . '/../Resources/config/bundles/';
 
@@ -51,6 +53,5 @@ class LibrinfoUserExtension extends LibrinfoCoreExtension
                     );
             }
         }
-
     }
 }
