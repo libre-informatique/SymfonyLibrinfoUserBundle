@@ -60,13 +60,8 @@ class TraceableListener implements LoggerAwareInterface, EventSubscriber
         if (!$this->hasTrait($metadata->getReflectionClass(), 'Librinfo\UserBundle\Entity\Traits\Traceable', true))
             return; // return if current entity doesn't use Traceable trait
 
-        $this->logger->debug(
-            "[TraceableListener] Entering TraceableListner for « loadClassMetadata » event"
-        );
-
-        $this->logger->debug(
-            "[TraceableListener] Using « " . $this->userClass . " » as User class"
-        );
+        $this->logger->debug("[TraceableListener] Entering TraceableListener for « loadClassMetadata » event");
+        $this->logger->debug("[TraceableListener] Using « " . $this->userClass . " » as User class");
 
         // setting default mapping configuration for Traceable
 
@@ -94,10 +89,7 @@ class TraceableListener implements LoggerAwareInterface, EventSubscriber
             ]
         ]);
 
-        $this->logger->debug(
-            "[TraceableListener] Added Traceable mapping metadata to Entity",
-            ['class' => $metadata->getName()]
-        );
+        $this->logger->debug("[TraceableListener] Added Traceable mapping metadata to Entity", ['class' => $metadata->getName()]);
     }
 
     /**
@@ -112,15 +104,12 @@ class TraceableListener implements LoggerAwareInterface, EventSubscriber
         if (!$this->hasTrait($entity, 'Librinfo\UserBundle\Entity\Traits\Traceable'))
             return;
 
-        $this->logger->debug(
-            "[TraceableListner] Entering TraceableListner for « prePersist » event"
-        );
+        $this->logger->debug("[TraceableListener] Entering TraceableListener for « prePersist » event");
 
         $user = $this->tokenStorage->getToken()->getUser();
         $now = new DateTime('NOW');
 
-        $entity->setCreatedBy($user);
-        $entity->setCreatedAt($now);
+        $entity->setCreatedBy($user instanceof UserInterface ? $user : NULL);
     }
 
     /**
@@ -135,15 +124,12 @@ class TraceableListener implements LoggerAwareInterface, EventSubscriber
         if (!$this->hasTrait($entity, 'Librinfo\BaseEntitiesBundle\Entity\Traits\Traceable'))
             return;
 
-        $this->logger->debug(
-            "[TraceableListner] Entering TraceableListner for « preUpdate » event"
-        );
+        $this->logger->debug("[TraceableListener] Entering TraceableListener for « preUpdate » event");
 
         $user = $this->tokenStorage->getToken()->getUser();
         $now = new DateTime('NOW');
 
-        $entity->setUpdatedBy($user);
-        $entity->setUpdatedAt($now);
+        $entity->setUpdatedBy($user instanceof UserInterface ? $user : NULL);
     }
 
     /**

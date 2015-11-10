@@ -30,7 +30,7 @@ trait Traceable
      *
      * @return Traceable
      */
-    public function setCreatedBy(UserInterface $createdBy)
+    public function setCreatedBy(UserInterface $createdBy = NULL)
     {
         $this->createdBy = $createdBy;
         return $this;
