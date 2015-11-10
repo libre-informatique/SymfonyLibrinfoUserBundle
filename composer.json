@@ -8,6 +8,9 @@
         "twig/twig": "^1.22.1",
         "sonata-project/user-bundle": "~2.2"
     },
+    "require-dev": {
+        "libre-informatique/decorator-bundle": "dev-master"
+    }
     "license": "GPL-3.0",
     "keywords": [
         "e-venement",
