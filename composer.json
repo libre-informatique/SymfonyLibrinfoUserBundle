@@ -8,7 +8,7 @@
         "twig/twig": "^1.22.1",
         "sonata-project/user-bundle": "~2.2",
         "libre-informatique/decorator-bundle": "dev-master",
-        "libre-informatique/core-bundle": "dev-interfaces_and_traits"
+        "libre-informatique/base-entities-bundle": "dev-interfaces_and_traits"
     },
     "license": "GPL-3.0",
     "keywords": [

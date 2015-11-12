@@ -8,6 +8,8 @@ use Symfony\Component\Security\Core\User\UserInterface;
 
 trait Traceable
 {
+    use \Librinfo\BaseEntitiesBundle\Entity\Traits\Traceable;
+    
     /**
      * @var UserInterface
      */
