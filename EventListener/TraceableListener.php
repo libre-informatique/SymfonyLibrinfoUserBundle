@@ -12,6 +12,7 @@ use Psr\Log\LoggerAwareInterface;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorage;
 use Librinfo\BaseEntitiesBundle\EventListener\Traits\ClassChecker;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 class TraceableListener implements LoggerAwareInterface, EventSubscriber
 {
@@ -109,6 +110,7 @@ class TraceableListener implements LoggerAwareInterface, EventSubscriber
         $now = new DateTime('NOW');
 
         $entity->setCreatedBy($user instanceof UserInterface ? $user : NULL);
+        $entity->setCreatedAt($now);
     }
 
     /**
@@ -129,6 +131,7 @@ class TraceableListener implements LoggerAwareInterface, EventSubscriber
         $now = new DateTime('NOW');
 
         $entity->setUpdatedBy($user instanceof UserInterface ? $user : NULL);
+        $entity->setUpdatedAt($now);
     }
 
     /**
