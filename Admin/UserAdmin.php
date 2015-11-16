@@ -6,10 +6,10 @@ use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
-use Librinfo\CoreBundle\Admin\Admin;
+use Librinfo\CoreBundle\Admin\CoreAdmin;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoder;
 
-class UserAdmin extends Admin
+class UserAdmin extends CoreAdmin
 {
     /**
      * @var UserPasswordEncoder
