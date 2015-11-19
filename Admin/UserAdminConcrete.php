@@ -14,6 +14,7 @@ class UserAdminConcrete extends UserAdmin
      */
     protected function configureDatagridFilters(DatagridMapper $mapper)
     {
+        parent::configureDatagridFilters($mapper);
         $this->configureFields(__FUNCTION__, $mapper, $this->getGrandParentClass());
     }
 
@@ -22,6 +23,7 @@ class UserAdminConcrete extends UserAdmin
      */
     protected function configureListFields(ListMapper $mapper)
     {
+        parent::configureListFields($mapper);
         $this->configureFields(__FUNCTION__, $mapper, $this->getGrandParentClass());
     }
 

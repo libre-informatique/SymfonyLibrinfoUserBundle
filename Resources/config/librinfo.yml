@@ -1,5 +1,11 @@
 parameters:
     librinfo:
+        FOS\UserBundle\Entity\User:
+            Sonata\AdminBundle\Datagrid\ListMapper:
+                remove: [id, salt, confirmationToken, passwordRequestedAt, credentialsExpired, credentialsExpireAt, expiresAt]
+            Sonata\AdminBundle\Datagrid\DatagridMapper:
+                add:
+                  username: ~
         Librinfo\UserBundle\Entity\Traits\Traceable:
             Sonata\AdminBundle\Form\FormMapper:
                 add:
