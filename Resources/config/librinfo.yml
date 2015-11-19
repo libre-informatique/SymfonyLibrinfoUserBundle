@@ -3,9 +3,34 @@ parameters:
         FOS\UserBundle\Entity\User:
             Sonata\AdminBundle\Datagrid\ListMapper:
                 remove: [id, salt, confirmationToken, passwordRequestedAt, credentialsExpired, credentialsExpireAt, expiresAt]
-            Sonata\AdminBundle\Datagrid\DatagridMapper:
                 add:
-                  username: ~
+                    _options:
+                        fieldsOrder: [username, name, firstname]
+            Sonata\AdminBundle\Datagrid\DatagridMapper:
+                _copy: Sonata\AdminBundle\Datagrid\ListMapper
+            Sonata\AdminBundle\Form\FormMapper:
+                add:
+                    General:
+                        '':
+                            username: ~
+                            name: ~
+                            firstname: ~
+                        Details:
+                            enabled: ~
+                            locked: ~
+                            expired: ~
+                            expiresAt: ~
+                    Security:
+                        Password:
+                            plainPassword:
+                                type: repeated
+                                required: false
+                                translation_domain: FOSUserBundle
+                        Roles:
+                            roles: ~
+            Sonata\AdminBundle\Show\ShowMapper:
+                _copy: Sonata\AdminBundle\Form\FormMapper
+                      
         Librinfo\UserBundle\Entity\Traits\Traceable:
             Sonata\AdminBundle\Form\FormMapper:
                 add:

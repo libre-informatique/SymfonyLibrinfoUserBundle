@@ -4,6 +4,10 @@ Librinfo\UserBundle\Entity\User:
         id:
             type: guid
             generator:  { strategy: UUID }
+    fields:
+        firstname:
+            type: string(255)
+            nullable: true
     manyToMany:
         groups:
             inversedBy: users

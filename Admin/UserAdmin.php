@@ -24,6 +24,8 @@ class UserAdmin extends CoreAdmin
         $datagridMapper
             ->add('id')
             ->add('username')
+            ->add('name')
+            ->add('firstname')
             ->add('email')
             ->add('enabled')
             ->add('locked')
@@ -47,6 +49,8 @@ class UserAdmin extends CoreAdmin
         $listMapper
             ->add('id')
             ->add('username')
+            ->add('name')
+            ->add('firstname')
             ->add('email')
             ->add('enabled')
             ->add('locked')
@@ -76,6 +80,8 @@ class UserAdmin extends CoreAdmin
         $formMapper
             ->add('id')
             ->add('username')
+            ->add('name')
+            ->add('firstname')
             ->add('email')
             ->add('enabled','checkbox',['label'=>'Enabled'])
             ->add('locked')
@@ -103,6 +109,8 @@ class UserAdmin extends CoreAdmin
         $showMapper
             ->add('id')
             ->add('username')
+            ->add('name')
+            ->add('firstname')
             ->add('email')
             ->add('enabled')
             ->add('locked')

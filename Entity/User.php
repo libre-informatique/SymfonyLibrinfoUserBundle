@@ -4,11 +4,13 @@ namespace Librinfo\UserBundle\Entity;
 
 use FOS\UserBundle\Entity\User as BaseUser;
 use FOS\UserBundle\Model\UserInterface;
+use Librinfo\BaseEntitiesBundle\Entity\Traits\Nameable;
 
 class User extends BaseUser
 {
-
+    use Nameable;
     protected $id;
+    protected $firstname;
 
     public function __construct()
     {
@@ -80,5 +82,19 @@ class User extends BaseUser
     {
         return $this->id;
     }
-
+    /**
+     * @return mixed
+     */
+    public function getFirstname()
+    {
+        return $this->firstname;
+    }
+    /**
+     * @return mixed
+     */
+    public function setFirstname($firstname)
+    {
+        $this->firstname = $firstname;
+        return $this;
+    }
 }
