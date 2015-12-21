@@ -5,6 +5,9 @@ Librinfo\UserBundle\Entity\User:
             type: guid
             generator:  { strategy: UUID }
     fields:
+        name:
+            type: string(255)
+            nullable: true
         firstname:
             type: string(255)
             nullable: true
