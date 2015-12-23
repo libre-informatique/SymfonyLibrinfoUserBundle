@@ -15,7 +15,7 @@ services:
         tags:
             - {name: sonata.admin, manager_type: orm, group: Application Management, label: Groups}
 
-# Service that manage Traceable doctrine mapping and behavior
+# Service that manages Traceable doctrine mapping and behavior
 
     librinfo.user_entities.listener.traceable:
         class: Librinfo\UserBundle\EventListener\TraceableListener
@@ -24,6 +24,17 @@ services:
         calls:
             - [setLogger,[@logger]]
             - [setTokenStorage, [@security.token_storage]]
+            - [setUserClass, [%librinfo.user_bundle.user.class%]]
+            - [setClassAnalyser, [Librinfo\CoreBundle\Tools\Reflection\ClassAnalyzer]]
+
+# Service that manages Ownable doctrine mapping
+
+    librinfo.user_entities.listener.ownable:
+        class: Librinfo\UserBundle\EventListener\OwnableListener
+        tags:
+            - { name: doctrine.event_subscriber }
+        calls:
+            - [setLogger,[@logger]]
             - [setUserClass, [%librinfo.user_bundle.user.class%]]
             - [setClassAnalyser, [Librinfo\CoreBundle\Tools\Reflection\ClassAnalyzer]]
 

@@ -30,7 +30,7 @@ parameters:
                             roles: ~
             Sonata\AdminBundle\Show\ShowMapper:
                 _copy: Sonata\AdminBundle\Form\FormMapper
-                      
+
         Librinfo\UserBundle\Entity\Traits\Traceable:
             Sonata\AdminBundle\Form\FormMapper:
                 add:
@@ -47,4 +47,14 @@ parameters:
                                 class: Librinfo\UserBundle\Entity\User
                                 read_only: true
                                 disabled: true
+                                required: false
+
+        Librinfo\UserBundle\Entity\Traits\Ownable:
+            Sonata\AdminBundle\Form\FormMapper:
+                add:
+                    Specifics:
+                        Misc:
+                            owner:
+                                type: entity
+                                class: Librinfo\UserBundle\Entity\User
                                 required: false
