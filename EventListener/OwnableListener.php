@@ -10,6 +10,7 @@ use Psr\Log\LoggerAwareInterface;
 use Psr\Log\LoggerInterface;
 use Librinfo\BaseEntitiesBundle\EventListener\Traits\ClassChecker;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorage;
 
 class OwnableListener implements LoggerAwareInterface, EventSubscriber
 {
@@ -34,6 +35,8 @@ class OwnableListener implements LoggerAwareInterface, EventSubscriber
     {
         return [
             'loadClassMetadata',
+            //'prePersist',
+            //'preUpdate',
         ];
     }
 
@@ -89,5 +92,53 @@ class OwnableListener implements LoggerAwareInterface, EventSubscriber
     public function setUserClass($userClass)
     {
         $this->userClass = $userClass;
+    }
+
+    /**
+     * sets Traceable dateTime and user information when persisting entity
+     *
+     * @param LifecycleEventArgs $eventArgs
+     */
+    /*
+    public function prePersist(LifecycleEventArgs $eventArgs)
+    {
+        $entity = $eventArgs->getObject();
+
+        if (!$this->hasTrait($entity, 'Librinfo\BaseEntitiesBundle\Entity\Traits\Traceable'))
+            return;
+        
+        $this->logger->debug("[TraceableListener] Entering TraceableListener for « preUpdate » event");
+
+        $user = $this->tokenStorage->getToken()->getUser();
+    }
+    */
+    
+    /**
+     * sets Traceable dateTime and user information when updating entity
+     *
+     * @param LifecycleEventArgs $eventArgs
+     */
+    /*
+    public function preUpdate(LifecycleEventArgs $eventArgs)
+    {
+        $entity = $eventArgs->getObject();
+
+        if (!$this->hasTrait($entity, 'Librinfo\BaseEntitiesBundle\Entity\Traits\Traceable'))
+            return;
+
+        $this->logger->debug("[TraceableListener] Entering TraceableListener for « preUpdate » event");
+
+        $user = $this->tokenStorage->getToken()->getUser();
+    }
+    */
+    
+    /**
+     * setTokenStorage
+     *
+     * @param TokenStorage $tokenStorage
+     */
+    public function setTokenStorage(TokenStorage $tokenStorage)
+    {
+        $this->tokenStorage = $tokenStorage;
     }
 }

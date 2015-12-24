@@ -35,6 +35,7 @@ services:
             - { name: doctrine.event_subscriber }
         calls:
             - [setLogger,[@logger]]
+            - [setTokenStorage, [@security.token_storage]]
             - [setUserClass, [%librinfo.user_bundle.user.class%]]
             - [setClassAnalyser, [Librinfo\CoreBundle\Tools\Reflection\ClassAnalyzer]]
 
