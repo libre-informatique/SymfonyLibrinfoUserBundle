@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping\ClassMetadata;
 use Monolog\Logger;
 use Psr\Log\LoggerAwareInterface;
 use Psr\Log\LoggerInterface;
-use Librinfo\BaseEntitiesBundle\EventListener\Traits\ClassChecker;
+use Librinfo\DoctrineBundle\EventListener\Traits\ClassChecker;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorage;
 
@@ -104,7 +104,7 @@ class OwnableListener implements LoggerAwareInterface, EventSubscriber
     {
         $entity = $eventArgs->getObject();
 
-        if (!$this->hasTrait($entity, 'Librinfo\BaseEntitiesBundle\Entity\Traits\Traceable'))
+        if (!$this->hasTrait($entity, 'Librinfo\DoctrineBundle\Entity\Traits\Traceable'))
             return;
         
         $this->logger->debug("[TraceableListener] Entering TraceableListener for « preUpdate » event");
@@ -123,7 +123,7 @@ class OwnableListener implements LoggerAwareInterface, EventSubscriber
     {
         $entity = $eventArgs->getObject();
 
-        if (!$this->hasTrait($entity, 'Librinfo\BaseEntitiesBundle\Entity\Traits\Traceable'))
+        if (!$this->hasTrait($entity, 'Librinfo\DoctrineBundle\Entity\Traits\Traceable'))
             return;
 
         $this->logger->debug("[TraceableListener] Entering TraceableListener for « preUpdate » event");

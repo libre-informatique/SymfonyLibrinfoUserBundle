@@ -2,7 +2,7 @@
 
 namespace Librinfo\UserBundle\Entity;
 
-use Librinfo\BaseEntitiesBundle\Entity\SearchIndexEntity;
+use Librinfo\DoctrineBundle\Entity\SearchIndexEntity;
 
 class UserSearchIndex extends SearchIndexEntity
 {

@@ -8,7 +8,7 @@
         "twig/twig": "^1.22.1",
         "sonata-project/user-bundle": "~2.2",
         "libre-informatique/decorator-bundle": "dev-master",
-        "libre-informatique/base-entities-bundle": "dev-master"
+        "libre-informatique/doctrine-bundle": "dev-master"
     },
     "license": "GPL-3.0",
     "keywords": [
@@ -37,7 +37,5 @@
             "Librinfo\\UserBundle\\": ""
         }
     },
-    "suggest": {
-        "libre-informatique/base-entities-bundle": "Base behaviors for Doctrine Entities."
-    }
+    "suggest": {}
 }
