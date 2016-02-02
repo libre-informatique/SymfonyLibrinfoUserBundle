@@ -10,7 +10,7 @@ parameters:
                 _copy: Sonata\AdminBundle\Datagrid\ListMapper
             Sonata\AdminBundle\Form\FormMapper:
                 add:
-                    General:
+                    form_group_general:
                         '':
                             username: ~
                             name: ~
@@ -34,8 +34,8 @@ parameters:
         Librinfo\UserBundle\Entity\Traits\Traceable:
             Sonata\AdminBundle\Form\FormMapper:
                 add:
-                    Specifics:
-                        Misc:
+                    form_group_specifics:
+                        form_group_misc:
                             createdBy:
                                 type: entity
                                 class: Librinfo\UserBundle\Entity\User
@@ -52,8 +52,8 @@ parameters:
         Librinfo\UserBundle\Entity\Traits\Ownable:
             Sonata\AdminBundle\Form\FormMapper:
                 add:
-                    Specifics:
-                        Misc:
+                    form_group_specifics:
+                        form_group_misc:
                             owner:
                                 type: entity
                                 class: Librinfo\UserBundle\Entity\User

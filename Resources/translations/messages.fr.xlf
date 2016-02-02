@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" datatype="plaintext" original="file.ext">
+        <body>
+
+<!-- OWNABLE -->
+            <trans-unit id="field_ownable_owner">
+                <source>Owner</source>
+                <target>Propriétaire</target>
+            </trans-unit>
+
+<!-- TRACEABLE -->
+            <trans-unit id="field_traceable_created_by">
+                <source>Created By</source>
+                <target>Créé par</target>
+            </trans-unit>
+            <trans-unit id="field_traceable_updated_by">
+                <source>Updated By</source>
+                <target>Modifié par</target>
+            </trans-unit>
+
+        </body>
+    </file>
+</xliff>
