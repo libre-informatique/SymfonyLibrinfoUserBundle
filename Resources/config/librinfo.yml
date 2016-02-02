@@ -15,18 +15,19 @@ parameters:
                             username: ~
                             name: ~
                             firstname: ~
-                        Details:
+                            email: ~
+                        form_group_details:
                             enabled: ~
                             locked: ~
                             expired: ~
                             expiresAt: ~
-                    Security:
-                        Password:
+                    form_group_security:
+                        form_group_password:
                             plainPassword:
                                 type: repeated
                                 required: false
                                 translation_domain: FOSUserBundle
-                        Roles:
+                        form_group_roles:
                             roles: ~
             Sonata\AdminBundle\Show\ShowMapper:
                 _copy: Sonata\AdminBundle\Form\FormMapper

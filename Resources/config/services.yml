@@ -1,19 +1,29 @@
 parameters:
     librinfo.user_bundle.user.class: %fos_user.model.user.class%
 
+# Create User and Group admins
+
 services:
     app.user:
         class: Librinfo\UserBundle\Admin\UserAdminConcrete
         arguments: [~, Librinfo\UserBundle\Entity\User, SonataAdminBundle:CRUD]
         tags:
-            - {name: sonata.admin, manager_type: orm, group: Application Management, label: Users}
+            -   name: sonata.admin
+                manager_type: orm
+                group: Application Management
+                label: librinfo.user.user_admin.label
+                label_translator_strategy: librinfo_core.label.strategy.librinfo
         calls:
             - [setSecurityPasswordEncoder,['@security.password_encoder']]
     app.group:
         class: Librinfo\UserBundle\Admin\GroupAdminConcrete
         arguments: [~, Librinfo\UserBundle\Entity\Group, SonataAdminBundle:CRUD]
         tags:
-            - {name: sonata.admin, manager_type: orm, group: Application Management, label: Groups}
+            -   name: sonata.admin
+                manager_type: orm
+                group: Application Management
+                label: librinfo.user.group_admin.label
+                label_translator_strategy: librinfo_core.label.strategy.librinfo
 
 # Service that manages Traceable doctrine mapping and behavior
 
