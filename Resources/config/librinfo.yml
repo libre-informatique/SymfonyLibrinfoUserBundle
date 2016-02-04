@@ -1,6 +1,6 @@
 parameters:
     librinfo:
-        FOS\UserBundle\Entity\User:
+        Librinfo\UserBundle\Entity\User:
             Sonata\AdminBundle\Datagrid\ListMapper:
                 remove: [id, salt, confirmationToken, passwordRequestedAt, credentialsExpired, credentialsExpireAt, expiresAt]
                 add:
@@ -20,7 +20,8 @@ parameters:
                             enabled: ~
                             locked: ~
                             expired: ~
-                            expiresAt: ~
+                            expiresAt:
+                                type: sonata_type_date_picker
                     form_group_security:
                         form_group_password:
                             plainPassword:
@@ -29,6 +30,18 @@ parameters:
                                 translation_domain: FOSUserBundle
                         form_group_roles:
                             roles: ~
+            Sonata\AdminBundle\Show\ShowMapper:
+                _copy: Sonata\AdminBundle\Form\FormMapper
+
+        Librinfo\UserBundle\Entity\Group:
+            Sonata\AdminBundle\Datagrid\ListMapper:
+                add:
+                    name: ~
+                    roles: ~
+            Sonata\AdminBundle\Form\FormMapper:
+                add:
+                    name: ~
+                    roles: ~
             Sonata\AdminBundle\Show\ShowMapper:
                 _copy: Sonata\AdminBundle\Form\FormMapper
 
