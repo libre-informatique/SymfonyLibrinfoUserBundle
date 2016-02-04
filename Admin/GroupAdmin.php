@@ -45,7 +45,7 @@ class GroupAdmin extends CoreAdmin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('id')
+            //->add('id')
             ->add('name')
             ->add('roles')
             ->add('users');

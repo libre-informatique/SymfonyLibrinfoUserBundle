@@ -22,6 +22,7 @@ class GroupAdminConcrete extends GroupAdmin
      */
     protected function configureListFields(ListMapper $mapper)
     {
+        dump('configureListFields');
         $this->configureFields(__FUNCTION__, $mapper, $this->getGrandParentClass());
     }
 
@@ -30,6 +31,7 @@ class GroupAdminConcrete extends GroupAdmin
      */
     protected function configureFormFields(FormMapper $mapper)
     {
+        dump('configureFormFields');
         $this->configureFields(__FUNCTION__, $mapper, $this->getGrandParentClass());
     }
 
