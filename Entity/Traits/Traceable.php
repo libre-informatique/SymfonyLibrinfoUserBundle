@@ -35,7 +35,7 @@ trait Traceable
      */
     public function setCreatedBy(UserInterface $createdBy = NULL)
     {
-        $this->createdBy = $createdBy;
+        $this->createdBy = $createdBy; 
         return $this;
     }
 
