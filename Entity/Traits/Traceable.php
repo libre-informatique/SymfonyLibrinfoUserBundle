@@ -9,7 +9,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
 trait Traceable
 {
     use \Librinfo\DoctrineBundle\Entity\Traits\Traceable;
-    
+
     /**
      * @var UserInterface
      */
@@ -52,7 +52,7 @@ trait Traceable
      *
      * @return Traceable
      */
-    public function setUpdatedBy(UserInterface $updatedBy)
+    public function setUpdatedBy(UserInterface $updatedBy = NULL)
     {
         $this->updatedBy = $updatedBy;
         return $this;
