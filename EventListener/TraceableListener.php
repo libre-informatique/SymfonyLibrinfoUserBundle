@@ -134,7 +134,7 @@ class TraceableListener implements LoggerAwareInterface, EventSubscriber
         $user = $this->tokenStorage->getToken()->getUser();
         $now = new DateTime('NOW');
 
-        $entity->setUpdatedBy($user instanceof UserInterface && $user->getId() ? $user : NULL);
+        $entity->setUpdatedBy($user instanceof UserInterface ? $user : NULL);
         $entity->setUpdatedAt($now);
     }
 
