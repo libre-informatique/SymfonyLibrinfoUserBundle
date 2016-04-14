@@ -52,7 +52,7 @@ trait Traceable
      *
      * @return Traceable
      */
-    public function setUpdatedBy(UserInterface $updatedBy)
+    public function setUpdatedBy(UserInterface $updatedBy = NULL)
     {
         $this->updatedBy = $updatedBy;
         return $this;
