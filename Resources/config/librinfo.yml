@@ -46,10 +46,16 @@ parameters:
                 _copy: Sonata\AdminBundle\Form\FormMapper
 
         Librinfo\UserBundle\Entity\Traits\Traceable:
+            Sonata\AdminBundle\Show\ShowMapper:
+                add:
+                    form_tab_history:
+                        form_group_history:
+                            createdBy: ~
+                            updatedBy: ~
             Sonata\AdminBundle\Form\FormMapper:
                 add:
-                    form_group_specifics:
-                        form_group_misc:
+                    form_tab_history:
+                        form_group_history:
                             createdBy:
                                 type: entity
                                 class: Librinfo\UserBundle\Entity\User
