@@ -62,6 +62,11 @@ class TraceableListener implements LoggerAwareInterface, EventSubscriber
         if (!$reflectionClass || !$this->hasTrait($reflectionClass, 'Librinfo\UserBundle\Entity\Traits\Traceable'))
             return; // return if current entity doesn't use Traceable trait
 
+        // Check if parents already have the Traceable trait
+        foreach ($metadata->parentClasses as $parent)
+            if ($this->classAnalyzer->hasTrait($parent, 'Librinfo\UserBundle\Entity\Traits\Traceable'))
+                return;
+
         $this->logger->debug("[TraceableListener] Entering TraceableListener for « loadClassMetadata » event");
         $this->logger->debug("[TraceableListener] Using « " . $this->userClass . " » as User class");
 

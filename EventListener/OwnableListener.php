@@ -55,6 +55,11 @@ class OwnableListener implements LoggerAwareInterface, EventSubscriber
         if (!$reflectionClass || !$this->hasTrait($reflectionClass, 'Librinfo\UserBundle\Entity\Traits\Ownable'))
             return; // return if current entity doesn't use Ownable trait
 
+        // Check if parents already have the Ownable trait
+        foreach ($metadata->parentClasses as $parent)
+            if ($this->classAnalyzer->hasTrait($parent, 'Librinfo\UserBundle\Entity\Traits\Ownable'))
+                return;
+
         $this->logger->debug("[OwnableListener] Entering OwnableListener for « loadClassMetadata » event");
 
         // setting default mapping configuration for Ownable
@@ -106,13 +111,13 @@ class OwnableListener implements LoggerAwareInterface, EventSubscriber
 
         if (!$this->hasTrait($entity, 'Librinfo\DoctrineBundle\Entity\Traits\Traceable'))
             return;
-        
+
         $this->logger->debug("[TraceableListener] Entering TraceableListener for « preUpdate » event");
 
         $user = $this->tokenStorage->getToken()->getUser();
     }
     */
-    
+
     /**
      * sets Traceable dateTime and user information when updating entity
      *
@@ -131,7 +136,7 @@ class OwnableListener implements LoggerAwareInterface, EventSubscriber
         $user = $this->tokenStorage->getToken()->getUser();
     }
     */
-    
+
     /**
      * setTokenStorage
      *
