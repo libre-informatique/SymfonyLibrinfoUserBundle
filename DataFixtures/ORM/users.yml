@@ -1,0 +1,13 @@
+include:
+    - ../../../../../app/config/users.yml
+
+Librinfo\UserBundle\Entity\User:
+    user_fixture:
+        username: fixture
+        email: fixture@librinfofixture.net
+        plainPassword: dummypassword
+        enabled: false
+        locked: true
+        expired: true
+        roles: {}
+
