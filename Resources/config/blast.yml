@@ -1,5 +1,5 @@
 parameters:
-    librinfo:
+    blast:
         Librinfo\UserBundle\Entity\User:
             Sonata\AdminBundle\Datagrid\ListMapper:
                 remove: [id, salt, confirmationToken, passwordRequestedAt, credentialsExpired, credentialsExpireAt, expiresAt]
