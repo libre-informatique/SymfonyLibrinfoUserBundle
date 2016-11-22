@@ -33,7 +33,7 @@ class LibrinfoUserExtension extends LibrinfoCoreExtension
             $loader->load('datafixtures.yml');
         }
         
-        $this->mergeParameter('librinfo', $container, __DIR__.'/../Resources/config');
+        $this->mergeParameter('blast', $container, __DIR__.'/../Resources/config');
 
         $bundleConfigDir = __DIR__ . '/../Resources/config/bundles/';
 
