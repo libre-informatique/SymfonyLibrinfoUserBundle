@@ -2,13 +2,11 @@
 
 namespace Librinfo\UserBundle\Entity\Traits;
 
-use DateTime;
-use Librinfo\UserBundle\Entity\User;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 trait Traceable
 {
-    use \Librinfo\DoctrineBundle\Entity\Traits\Traceable;
+    use \Librinfo\BaseEntitiesBundle\Entity\Traits\Traceable;
 
     /**
      * @var UserInterface

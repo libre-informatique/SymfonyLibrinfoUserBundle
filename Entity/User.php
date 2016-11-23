@@ -4,8 +4,8 @@ namespace Librinfo\UserBundle\Entity;
 
 use FOS\UserBundle\Entity\User as BaseUser;
 use FOS\UserBundle\Model\UserInterface;
-use Librinfo\DoctrineBundle\Entity\Traits\Stringable;
-use Librinfo\DoctrineBundle\Entity\Traits\Searchable;
+use Librinfo\BaseEntitiesBundle\Entity\Traits\Stringable;
+use Librinfo\BaseEntitiesBundle\Entity\Traits\Searchable;
 
 class User extends BaseUser
 {
