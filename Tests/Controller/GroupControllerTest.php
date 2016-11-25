@@ -24,7 +24,7 @@ class GroupControllerTest extends WebTestCase
     {
         $this->init();
         /** @var User $user */
-        $user = $this->client->getContainer()->get('librinfo_core.services.authenticate')->authencicateUser($this->datafixtures['user']['username']);
+        $user = $this->client->getContainer()->get('blast_core.services.authenticate')->authencicateUser($this->datafixtures['user']['username']);
         $this->assertNotEmpty($user);
 
         $group = new Group();

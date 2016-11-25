@@ -12,7 +12,7 @@ services:
                 manager_type: orm
                 group: Application Management
                 label: librinfo.user.user_admin.label
-                label_translator_strategy: librinfo_core.label.strategy.librinfo
+                label_translator_strategy: blast_core.label.strategy.librinfo
         calls:
             - [setSecurityPasswordEncoder,['@security.password_encoder']]
     app.group:
@@ -23,7 +23,7 @@ services:
                 manager_type: orm
                 group: Application Management
                 label: librinfo.user.group_admin.label
-                label_translator_strategy: librinfo_core.label.strategy.librinfo
+                label_translator_strategy: blast_core.label.strategy.librinfo
 
 # Service that manages Traceable doctrine mapping and behavior
 
