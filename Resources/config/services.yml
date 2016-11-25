@@ -35,7 +35,7 @@ services:
             - [setLogger,[@logger]]
             - [setTokenStorage, [@security.token_storage]]
             - [setUserClass, [%librinfo.user_bundle.user.class%]]
-            - [setClassAnalyser, [Librinfo\CoreBundle\Tools\Reflection\ClassAnalyzer]]
+            - [setClassAnalyser, [Blast\CoreBundle\Tools\Reflection\ClassAnalyzer]]
 
 # Service that manages Ownable doctrine mapping
 
@@ -47,5 +47,5 @@ services:
             - [setLogger,[@logger]]
             - [setTokenStorage, [@security.token_storage]]
             - [setUserClass, [%librinfo.user_bundle.user.class%]]
-            - [setClassAnalyser, [Librinfo\CoreBundle\Tools\Reflection\ClassAnalyzer]]
+            - [setClassAnalyser, [Blast\CoreBundle\Tools\Reflection\ClassAnalyzer]]
 
