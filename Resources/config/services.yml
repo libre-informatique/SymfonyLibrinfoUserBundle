@@ -2,7 +2,6 @@ parameters:
     librinfo.user_bundle.user.class: %fos_user.model.user.class%
 
 # Create User and Group admins
-
 services:
     app.user:
         class: Librinfo\UserBundle\Admin\UserAdminConcrete
@@ -24,10 +23,15 @@ services:
                 group: Application Management
                 label: librinfo.user.group_admin.label
                 label_translator_strategy: blast_core.label.strategy.librinfo
+# Authentication    
+    librinfo_user.authenticate:
+        class: Librinfo\UserBundle\Services\Authenticate
+        arguments: [@security.token_storage]
+        calls:
+            - [setUserManager, ['@fos_user.user_manager']]
 
 # Service that manages Traceable doctrine mapping and behavior
-
-    librinfo.user_entities.listener.traceable:
+    librinfo_user.listener.traceable:
         class: Librinfo\UserBundle\EventListener\TraceableListener
         tags:
             - { name: doctrine.event_subscriber }
@@ -38,8 +42,7 @@ services:
             - [setClassAnalyser, [Blast\CoreBundle\Tools\Reflection\ClassAnalyzer]]
 
 # Service that manages Ownable doctrine mapping
-
-    librinfo.user_entities.listener.ownable:
+    librinfo_user.listener.ownable:
         class: Librinfo\UserBundle\EventListener\OwnableListener
         tags:
             - { name: doctrine.event_subscriber }
