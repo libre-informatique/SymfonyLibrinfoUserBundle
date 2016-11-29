@@ -31,7 +31,7 @@ class Authenticate
      * @return object
      *
      */
-    public function authencicateUser($username)
+    public function authenticateUser($username)
     {
         if ($username)
         {
