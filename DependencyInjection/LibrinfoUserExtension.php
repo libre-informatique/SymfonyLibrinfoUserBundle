@@ -4,7 +4,6 @@ namespace Librinfo\UserBundle\DependencyInjection;
 
 use Blast\CoreBundle\DependencyInjection\DefaultParameters;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\Config\FileLocator;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 use Symfony\Component\DependencyInjection\Loader;
 use Symfony\Component\Yaml\Yaml;
@@ -20,21 +19,16 @@ class LibrinfoUserExtension extends BlastCoreExtension
     /**
      * {@inheritdoc}
      */
-    public function load(array $configs, ContainerBuilder $container)
+    public function loadDataFixtures(ContainerBuilder $container, Loader\FileLoader $loader)
     {
-        $configuration = new Configuration();
-        $config = $this->processConfiguration($configuration, $configs);
-
-        $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
-        $loader->load('services.yml');
-
         if ($container->getParameter('kernel.environment') == 'test')
         {
             $loader->load('datafixtures.yml');
         }
-        
-        $this->mergeParameter('blast', $container, __DIR__.'/../Resources/config');
-
+    }
+    
+    public function doLoad(ContainerBuilder $container, Loader\FileLoader $loader, array $config)
+    {
         $bundleConfigDir = __DIR__ . '/../Resources/config/bundles/';
 
         $bundlesConfigFiles = scandir($bundleConfigDir);
@@ -53,8 +47,13 @@ class LibrinfoUserExtension extends BlastCoreExtension
                     );
             }
         }
-
+        return $this;
+    }
+    
+    public function loadSecurity()
+    {
         if (class_exists('\Librinfo\SecurityBundle\Configurator\SecurityConfigurator'))
             \Librinfo\SecurityBundle\Configurator\SecurityConfigurator::getInstance($container)->loadSecurityYml(__DIR__ . '/../Resources/config/security.yml');
+        return $this;
     }
 }
