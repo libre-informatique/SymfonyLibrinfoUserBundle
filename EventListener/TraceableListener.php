@@ -12,7 +12,7 @@ use Psr\Log\LoggerAwareInterface;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorage;
 use Symfony\Component\Security\Core\User\UserInterface;
-use Librinfo\BaseEntitiesBundle\EventListener\Traits\ClassChecker;
+use Blast\BaseEntitiesBundle\EventListener\Traits\ClassChecker;
 
 class TraceableListener implements LoggerAwareInterface, EventSubscriber
 {
@@ -131,7 +131,7 @@ class TraceableListener implements LoggerAwareInterface, EventSubscriber
     {
         $entity = $eventArgs->getObject();
 
-        if (!$this->hasTrait($entity, 'Librinfo\BaseEntitiesBundle\Entity\Traits\Traceable'))
+        if (!$this->hasTrait($entity, 'Blast\BaseEntitiesBundle\Entity\Traits\Traceable'))
             return;
 
         $this->logger->debug("[TraceableListener] Entering TraceableListener for « preUpdate » event");

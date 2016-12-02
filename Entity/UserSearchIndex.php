@@ -2,7 +2,7 @@
 
 namespace Librinfo\UserBundle\Entity;
 
-use Librinfo\BaseEntitiesBundle\Entity\SearchIndexEntity;
+use Blast\BaseEntitiesBundle\Entity\SearchIndexEntity;
 
 class UserSearchIndex extends SearchIndexEntity
 {

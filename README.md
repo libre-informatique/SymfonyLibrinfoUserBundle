@@ -63,16 +63,16 @@ fos_user:
     db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
     firewall_name: N/A 
     # ...
-    user_class: Librinfo\BaseEntitiesBundle\Entity\GenericEntity
+    user_class: Blast\BaseEntitiesBundle\Entity\GenericEntity
     group:
-        group_class: Librinfo\BaseEntitiesBundle\Entity\GenericEntity
+        group_class: Blast\BaseEntitiesBundle\Entity\GenericEntity
         group_manager: sonata.user.orm.group_manager
     service:
         user_manager: sonata.user.orm.user_manager
 ```
 
 #### Note
-Using ```Librinfo\BaseEntitiesBundle\Entity\GenericEntity``` as ```User``` and ```Group``` classes let this bundle defining it's own User and Group classes.
+Using ```Blast\BaseEntitiesBundle\Entity\GenericEntity``` as ```User``` and ```Group``` classes let this bundle defining it's own User and Group classes.
 If you define custom User and Group Classes, the bundle will not override your values.
 
 Configuring the Json type from sonata-project/doctrine-extension
@@ -91,7 +91,7 @@ doctrine:
 Note: an abvious mistake can be the addition of this key outside the main ```doctrine``` key, where you have all your DB configuration.
 
 ###### Note:
-```Librinfo\BaseEntitiesBundle\Entity\GenericEntity``` and default classes values (```FOS\UserBundle\Entity\User``` and ```FOS\UserBundle\Entity\Group```) will be replaced with defaults ```LibrinfoUserBundle``` configuration values in ```LibrinfoUserBundle/Resources/config/bundles/fos_user.yml```. Custom values in ```app/config/config.yml``` for the key ```fos_user``` will not be overriden by the ```LibrinfoUserBundle```.
+```Blast\BaseEntitiesBundle\Entity\GenericEntity``` and default classes values (```FOS\UserBundle\Entity\User``` and ```FOS\UserBundle\Entity\Group```) will be replaced with defaults ```LibrinfoUserBundle``` configuration values in ```LibrinfoUserBundle/Resources/config/bundles/fos_user.yml```. Custom values in ```app/config/config.yml``` for the key ```fos_user``` will not be overriden by the ```LibrinfoUserBundle```.
 
 Updating your schema to add User and Group entities tables
 ----------------------------------------------------------
