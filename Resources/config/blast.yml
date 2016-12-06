@@ -2,7 +2,14 @@ parameters:
     blast:
         Librinfo\UserBundle\Entity\User:
             Sonata\AdminBundle\Datagrid\ListMapper:
-                remove: [id, salt, confirmationToken, passwordRequestedAt, credentialsExpired, credentialsExpireAt, expiresAt]
+                remove: 
+                    id: ~
+                    salt: ~
+                    confirmationToken: ~
+                    passwordRequestedAt: ~
+                    credentialsExpired: ~
+                    credentialsExpireAt: ~
+                    expiresAt: ~
                 add:
                     _options:
                         fieldsOrder: [username, name, firstname]
