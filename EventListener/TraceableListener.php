@@ -112,13 +112,14 @@ class TraceableListener implements LoggerAwareInterface, EventSubscriber
             return;
 
         $this->logger->debug("[TraceableListener] Entering TraceableListener for « prePersist » event");
-
         $user = $this->tokenStorage->getToken() ? $this->tokenStorage->getToken()->getUser() : NULL;
         $now = new DateTime('NOW');
 
-        $entity->setCreatedBy($user instanceof UserInterface ? $user : NULL);
+        if ($user instanceof UserInterface) {
+            $entity->setCreatedBy($user);
+            $entity->setUpdatedBy($user);
+        }
         $entity->setCreatedAt($now);
-        $entity->setUpdatedBy($user instanceof UserInterface ? $user : NULL);
         $entity->setUpdatedAt($now);
     }
 
