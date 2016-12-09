@@ -9,7 +9,6 @@
 {% block content %}
     <div class="main-login-container">
         {% if error %}
-            {% dump(error) %}
             <div>{{ error.message|trans({}, 'FOSUserBundle') }}</div>
         {% endif %}
 
