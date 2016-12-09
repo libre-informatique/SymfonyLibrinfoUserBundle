@@ -1,14 +1,22 @@
 <?php
 
+/*
+ * Copyright (C) 2015-2016 Libre Informatique
+ *
+ * This file is licenced under the GNU GPL v3.
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace Librinfo\UserBundle\EventListener;
 
+use Blast\BaseEntitiesBundle\EventListener\Traits\ClassChecker;
 use Doctrine\Common\EventSubscriber;
 use Doctrine\ORM\Event\LoadClassMetadataEventArgs;
 use Doctrine\ORM\Mapping\ClassMetadata;
 use Monolog\Logger;
 use Psr\Log\LoggerAwareInterface;
 use Psr\Log\LoggerInterface;
-use Blast\BaseEntitiesBundle\EventListener\Traits\ClassChecker;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorage;
 
 class OwnableListener implements LoggerAwareInterface, EventSubscriber
@@ -97,44 +105,6 @@ class OwnableListener implements LoggerAwareInterface, EventSubscriber
     {
         $this->userClass = $userClass;
     }
-
-    /**
-     * sets Traceable dateTime and user information when persisting entity
-     *
-     * @param LifecycleEventArgs $eventArgs
-     */
-    /*
-    public function prePersist(LifecycleEventArgs $eventArgs)
-    {
-        $entity = $eventArgs->getObject();
-
-        if (!$this->hasTrait($entity, 'Blast\BaseEntitiesBundle\Entity\Traits\Traceable'))
-            return;
-
-        $this->logger->debug("[TraceableListener] Entering TraceableListener for « preUpdate » event");
-
-        $user = $this->tokenStorage->getToken()->getUser();
-    }
-    */
-
-    /**
-     * sets Traceable dateTime and user information when updating entity
-     *
-     * @param LifecycleEventArgs $eventArgs
-     */
-    /*
-    public function preUpdate(LifecycleEventArgs $eventArgs)
-    {
-        $entity = $eventArgs->getObject();
-
-        if (!$this->hasTrait($entity, 'Blast\BaseEntitiesBundle\Entity\Traits\Traceable'))
-            return;
-
-        $this->logger->debug("[TraceableListener] Entering TraceableListener for « preUpdate » event");
-
-        $user = $this->tokenStorage->getToken()->getUser();
-    }
-    */
 
     /**
      * setTokenStorage
