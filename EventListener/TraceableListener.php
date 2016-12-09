@@ -1,7 +1,16 @@
 <?php
 
+/*
+ * Copyright (C) 2015-2016 Libre Informatique
+ *
+ * This file is licenced under the GNU GPL v3.
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace Librinfo\UserBundle\EventListener;
 
+use Blast\BaseEntitiesBundle\EventListener\Traits\ClassChecker;
 use DateTime;
 use Doctrine\Common\EventSubscriber;
 use Doctrine\ORM\Event\LifecycleEventArgs;
@@ -12,7 +21,6 @@ use Psr\Log\LoggerAwareInterface;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorage;
 use Symfony\Component\Security\Core\User\UserInterface;
-use Blast\BaseEntitiesBundle\EventListener\Traits\ClassChecker;
 
 class TraceableListener implements LoggerAwareInterface, EventSubscriber
 {
