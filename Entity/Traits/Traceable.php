@@ -14,8 +14,6 @@ use Symfony\Component\Security\Core\User\UserInterface;
 
 trait Traceable
 {
-    use \Blast\BaseEntitiesBundle\Entity\Traits\Traceable;
-
     /**
      * @var UserInterface
      */
