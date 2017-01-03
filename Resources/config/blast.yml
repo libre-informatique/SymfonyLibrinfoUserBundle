@@ -77,6 +77,10 @@ parameters:
                                 required: false
 
         Librinfo\UserBundle\Entity\Traits\Ownable:
+            Sonata\AdminBundle\Datagrid\DatagridMapper:
+                add:
+                    createdBy: ~
+                    updatedBy: ~
             Sonata\AdminBundle\Form\FormMapper:
                 add:
                     form_group_specifics:
