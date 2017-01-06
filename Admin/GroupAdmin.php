@@ -11,55 +11,34 @@ use Blast\CoreBundle\Admin\CoreAdmin;
 class GroupAdmin extends CoreAdmin
 {
     /**
-     * @param DatagridMapper $datagridMapper
+     * @param DatagridMapper $mapper
      */
-    protected function configureDatagridFilters(DatagridMapper $datagridMapper)
+    protected function configureDatagridFilters(DatagridMapper $mapper)
     {
-        $datagridMapper
-            ->add('id')
-            ->add('name')
-            ->add('roles');
+        $this->configureFields(__FUNCTION__, $mapper, $this->getGrandParentClass());
     }
 
     /**
-     * @param ListMapper $listMapper
+     * @param ListMapper $mapper
      */
-    protected function configureListFields(ListMapper $listMapper)
+    protected function configureListFields(ListMapper $mapper)
     {
-        $listMapper
-            ->add('id')
-            ->add('name')
-            ->add('roles')
-            ->add('_action', 'actions', array(
-                'actions' => array(
-                    'show'   => array(),
-                    'edit'   => array(),
-                    'delete' => array(),
-                )
-            ));
+        $this->configureFields(__FUNCTION__, $mapper, $this->getGrandParentClass());
     }
 
     /**
-     * @param FormMapper $formMapper
+     * @param FormMapper $mapper
      */
-    protected function configureFormFields(FormMapper $formMapper)
+    protected function configureFormFields(FormMapper $mapper)
     {
-        $formMapper
-            //->add('id')
-            ->add('name')
-            ->add('roles')
-            ->add('users');
+        $this->configureFields(__FUNCTION__, $mapper, $this->getGrandParentClass());
     }
 
     /**
-     * @param ShowMapper $showMapper
+     * @param ShowMapper $mapper
      */
-    protected function configureShowFields(ShowMapper $showMapper)
+    protected function configureShowFields(ShowMapper $mapper)
     {
-        $showMapper
-            ->add('id')
-            ->add('name')
-            ->add('roles')
-            ->add('users');
+        $this->configureFields(__FUNCTION__, $mapper, $this->getGrandParentClass());
     }
 }

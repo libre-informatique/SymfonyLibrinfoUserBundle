@@ -4,7 +4,7 @@ parameters:
 # Create User and Group admins
 services:
     app.user:
-        class: Librinfo\UserBundle\Admin\UserAdminConcrete
+        class: Librinfo\UserBundle\Admin\UserAdmin
         arguments: [~, Librinfo\UserBundle\Entity\User, SonataAdminBundle:CRUD]
         tags:
             -   name: sonata.admin
@@ -15,7 +15,7 @@ services:
         calls:
             - [setSecurityPasswordEncoder,['@security.password_encoder']]
     app.group:
-        class: Librinfo\UserBundle\Admin\GroupAdminConcrete
+        class: Librinfo\UserBundle\Admin\GroupAdmin
         arguments: [~, Librinfo\UserBundle\Entity\Group, SonataAdminBundle:CRUD]
         tags:
             -   name: sonata.admin

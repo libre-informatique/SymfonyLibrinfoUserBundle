@@ -17,112 +17,37 @@ class UserAdmin extends CoreAdmin
     private $securityPasswordEncoder;
 
     /**
-     * @param DatagridMapper $datagridMapper
+     * @param DatagridMapper $mapper
      */
-    protected function configureDatagridFilters(DatagridMapper $datagridMapper)
+    protected function configureDatagridFilters(DatagridMapper $mapper)
     {
-        $datagridMapper
-            ->add('id')
-            ->add('username')
-            ->add('name')
-            ->add('firstname')
-            ->add('email')
-            ->add('enabled')
-            ->add('locked')
-            ->add('expired')
-            ->add('salt')
-            ->add('password')
-            ->add('lastLogin')
-            ->add('expiresAt')
-            ->add('confirmationToken')
-            ->add('passwordRequestedAt')
-            ->add('roles')
-            ->add('credentialsExpired')
-            ->add('credentialsExpireAt');
+        parent::configureDatagridFilters($mapper);
+        $this->configureFields(__FUNCTION__, $mapper, $this->getGrandParentClass());
     }
 
     /**
-     * @param ListMapper $listMapper
+     * @param ListMapper $mapper
      */
-    protected function configureListFields(ListMapper $listMapper)
+    protected function configureListFields(ListMapper $mapper)
     {
-        $listMapper
-            ->add('id')
-            ->add('username')
-            ->add('name')
-            ->add('firstname')
-            ->add('email')
-            ->add('enabled')
-            ->add('locked')
-            ->add('expired')
-            ->add('salt')
-            ->add('lastLogin')
-            ->add('expiresAt')
-            ->add('confirmationToken')
-            ->add('passwordRequestedAt')
-            ->add('roles')
-            ->add('credentialsExpired')
-            ->add('credentialsExpireAt')
-            ->add('_action', 'actions', array(
-                'actions' => array(
-                    'show'   => array(),
-                    'edit'   => array(),
-                    'delete' => array(),
-                )
-            ));
+        parent::configureListFields($mapper);
+        $this->configureFields(__FUNCTION__, $mapper, $this->getGrandParentClass());
     }
 
     /**
-     * @param FormMapper $formMapper
+     * @param FormMapper $mapper
      */
-    protected function configureFormFields(FormMapper $formMapper)
+    protected function configureFormFields(FormMapper $mapper)
     {
-        $formMapper
-            ->add('id')
-            ->add('username')
-            ->add('name')
-            ->add('firstname')
-            ->add('email')
-            ->add('enabled','checkbox',['label'=>'Enabled'])
-            ->add('locked')
-            ->add('expired')
-            ->add('salt')
-            ->add('plainPassword','repeated',[
-                "required" => false,
-                "translation_domain" => 'FOSUserBundle'
-            ])
-            ->add('lastLogin')
-            ->add('expiresAt')
-            ->add('confirmationToken')
-            ->add('passwordRequestedAt')
-            ->add('roles')
-            ->add('credentialsExpired')
-            ->add('credentialsExpireAt');
-
+        $this->configureFields(__FUNCTION__, $mapper, $this->getGrandParentClass());
     }
 
     /**
-     * @param ShowMapper $showMapper
+     * @param ShowMapper $mapper
      */
-    protected function configureShowFields(ShowMapper $showMapper)
+    protected function configureShowFields(ShowMapper $mapper)
     {
-        $showMapper
-            ->add('id')
-            ->add('username')
-            ->add('name')
-            ->add('firstname')
-            ->add('email')
-            ->add('enabled')
-            ->add('locked')
-            ->add('expired')
-            ->add('salt')
-            ->add('lastLogin')
-            ->add('expiresAt')
-            ->add('confirmationToken')
-            ->add('passwordRequestedAt')
-            ->add('roles')
-            ->add('credentialsExpired')
-            ->add('credentialsExpireAt');
+        $this->configureFields(__FUNCTION__, $mapper, $this->getGrandParentClass());
     }
 
     public function preUpdate($object)
