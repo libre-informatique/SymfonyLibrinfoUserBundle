@@ -20,7 +20,7 @@ class Group extends Grp
      *
      * @param User $user
      *
-     * @return $this
+     * @return self
      */
     public function addUser($user)
     {
@@ -38,7 +38,7 @@ class Group extends Grp
      *
      * @param User $user
      *
-     * @return $this
+     * @return self
      */
     public function removeUser($user)
     {
@@ -61,7 +61,7 @@ class Group extends Grp
     /**
      * @param mixed $users
      *
-     * @return $this
+     * @return self
      */
     public function setUsers($users)
     {
