@@ -11,6 +11,9 @@ parameters:
                     credentialsExpireAt: ~
                     expiresAt: ~
                 add:
+                    name: ~
+                    firstname: ~
+                    username: ~
                     _options:
                         fieldsOrder: [username, name, firstname]
             Sonata\AdminBundle\Datagrid\DatagridMapper:
