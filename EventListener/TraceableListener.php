@@ -29,17 +29,17 @@ class TraceableListener implements LoggerAwareInterface, EventSubscriber
     /**
      * @var Logger
      */
-    private $logger;
+    protected $logger;
 
     /**
      * @var TokenStorage
      */
-    private $tokenStorage;
+    protected $tokenStorage;
 
     /**
      * @var string
      */
-    private $userClass;
+    protected $userClass;
 
     /**
      * Returns an array of events this subscriber wants to listen to.
