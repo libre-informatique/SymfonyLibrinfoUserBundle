@@ -26,6 +26,7 @@ trait Ownable
     public function setOwner(UserInterface $owner = NULL)
     {
         $this->owner = $owner;
+        
         return $this;
     }
 }
