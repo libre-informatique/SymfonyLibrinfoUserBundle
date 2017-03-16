@@ -5,6 +5,8 @@ The goal of this bundle is to define a minimum configured environment for user a
 
 Default User and Group classes are defined and mapped with ORM driver.
 
+This bundle relies heavily on FOSUserBundle.
+
 Installation
 ============
 
