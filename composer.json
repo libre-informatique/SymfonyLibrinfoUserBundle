@@ -32,8 +32,9 @@
     ],
     "autoload": {
         "psr-4": {
-            "Librinfo\\UserBundle\\": ""
+            "Librinfo\\UserBundle\\": "src/",
+            "Librinfo\\UserBundle\\Tests\\": "tests/"
         }
     },
-    "suggest": {}
+    "suggest": []
 }
